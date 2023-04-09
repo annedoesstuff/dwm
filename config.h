@@ -16,8 +16,8 @@ static const char *fonts[] = {"Hack Nerd Font Mono:size=10"};
 static const char dmenufont[] = "Hack Nerd Font Mono:size=10";
 static const char *colors[][3] = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = {foreground, black, black},
-	[SchemeSel] = {foreground, background, white},
+	[SchemeNorm] = {foreground, background, background},
+	[SchemeSel] = {selection_text, selection, foreground},
 };
 
 /* tagging */
