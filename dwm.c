@@ -198,6 +198,8 @@ static void resizeclient(Client *c, int x, int y, int w, int h);
 static void resizemouse(const Arg *arg);
 static void restack(Monitor *m);
 static void run(void);
+// start sbar ----------
+static void run_sbar(void);
 static void scan(void);
 static int sendevent(Client *c, Atom proto);
 static void sendmon(Client *c, Monitor *m);
@@ -1409,6 +1411,12 @@ run(void)
 			handler[ev.type](&ev); /* call handler */
 }
 
+//script for run_sbar
+void 
+run_sbar(void){
+	system("cd ~/dwm/statusbar; ./sbar &");
+}
+
 void
 scan(void)
 {
@@ -2280,6 +2288,7 @@ main(int argc, char *argv[])
 		die("pledge");
 #endif /* __OpenBSD__ */
 	scan();
+	run_sbar();
 	run();
 	cleanup();
 	XCloseDisplay(dpy);
